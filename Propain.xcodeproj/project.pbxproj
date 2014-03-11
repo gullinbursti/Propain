@@ -12,7 +12,6 @@
 		4C9D00DE18CE7DC600DB77CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9D00DD18CE7DC600DB77CC /* CoreGraphics.framework */; };
 		4C9D00E418CE7DC600DB77CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C9D00E218CE7DC600DB77CC /* InfoPlist.strings */; };
 		4C9D00E618CE7DC600DB77CC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D00E518CE7DC600DB77CC /* main.m */; };
-		4C9D00EA18CE7DC600DB77CC /* PPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D00E918CE7DC600DB77CC /* PPAppDelegate.m */; };
 		4C9D011118CE8C6A00DB77CC /* checkAvail_Active.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9D00FB18CE8C6A00DB77CC /* checkAvail_Active.png */; };
 		4C9D011218CE8C6A00DB77CC /* checkAvail_Active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9D00FC18CE8C6A00DB77CC /* checkAvail_Active@2x.png */; };
 		4C9D011318CE8C6A00DB77CC /* checkAvail_nonActive.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9D00FD18CE8C6A00DB77CC /* checkAvail_nonActive.png */; };
@@ -44,6 +43,9 @@
 		4C9D014318CEB97800DB77CC /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9D014218CEB97800DB77CC /* CoreLocation.framework */; };
 		4C9D014B18CEBE5C00DB77CC /* PPMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D014A18CEBE5C00DB77CC /* PPMapViewController.m */; };
 		4C9D014E18CEDCF700DB77CC /* PPUserAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D014D18CEDCF700DB77CC /* PPUserAnnotation.m */; };
+		4C9D015218CEF78500DB77CC /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9D015018CEF78500DB77CC /* iTunesArtwork.png */; };
+		4C9D015318CEF78500DB77CC /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C9D015118CEF78500DB77CC /* iTunesArtwork@2x.png */; };
+		4C9D015618CEF7A900DB77CC /* PPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9D015518CEF7A900DB77CC /* PPAppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,8 +57,6 @@
 		4C9D00E318CE7DC600DB77CC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4C9D00E518CE7DC600DB77CC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4C9D00E718CE7DC600DB77CC /* Propain-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Propain-Prefix.pch"; sourceTree = "<group>"; };
-		4C9D00E818CE7DC600DB77CC /* PPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPAppDelegate.h; sourceTree = "<group>"; };
-		4C9D00E918CE7DC600DB77CC /* PPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPAppDelegate.m; sourceTree = "<group>"; };
 		4C9D00FB18CE8C6A00DB77CC /* checkAvail_Active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkAvail_Active.png; sourceTree = "<group>"; };
 		4C9D00FC18CE8C6A00DB77CC /* checkAvail_Active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkAvail_Active@2x.png"; sourceTree = "<group>"; };
 		4C9D00FD18CE8C6A00DB77CC /* checkAvail_nonActive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkAvail_nonActive.png; sourceTree = "<group>"; };
@@ -93,6 +93,10 @@
 		4C9D014A18CEBE5C00DB77CC /* PPMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPMapViewController.m; sourceTree = "<group>"; };
 		4C9D014C18CEDCF700DB77CC /* PPUserAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPUserAnnotation.h; sourceTree = "<group>"; };
 		4C9D014D18CEDCF700DB77CC /* PPUserAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPUserAnnotation.m; sourceTree = "<group>"; };
+		4C9D015018CEF78500DB77CC /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
+		4C9D015118CEF78500DB77CC /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
+		4C9D015418CEF7A900DB77CC /* PPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPAppDelegate.h; sourceTree = "<group>"; };
+		4C9D015518CEF7A900DB77CC /* PPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPAppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,8 +147,6 @@
 		4C9D00DF18CE7DC600DB77CC /* Propain */ = {
 			isa = PBXGroup;
 			children = (
-				4C9D00E818CE7DC600DB77CC /* PPAppDelegate.h */,
-				4C9D00E918CE7DC600DB77CC /* PPAppDelegate.m */,
 				4C9D012A18CE933A00DB77CC /* Classes */,
 				4C9D00FA18CE8C6A00DB77CC /* Resources */,
 				4C9D00E018CE7DC600DB77CC /* Supporting Files */,
@@ -166,6 +168,7 @@
 		4C9D00FA18CE8C6A00DB77CC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4C9D014F18CEF77600DB77CC /* _AppStore */,
 				4C9D013918CEB0C200DB77CC /* Asset Catalogs */,
 				4C9D013818CEB09100DB77CC /* Backgrounds */,
 				4C9D013618CEB07C00DB77CC /* Buttons */,
@@ -176,6 +179,8 @@
 		4C9D012A18CE933A00DB77CC /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4C9D015418CEF7A900DB77CC /* PPAppDelegate.h */,
+				4C9D015518CEF7A900DB77CC /* PPAppDelegate.m */,
 				4C9D014518CEBA2D00DB77CC /* Splash */,
 				4C9D014418CEBA1D00DB77CC /* Main */,
 				4C9D013218CEA3E400DB77CC /* VO */,
@@ -267,6 +272,15 @@
 			name = Splash;
 			sourceTree = "<group>";
 		};
+		4C9D014F18CEF77600DB77CC /* _AppStore */ = {
+			isa = PBXGroup;
+			children = (
+				4C9D015018CEF78500DB77CC /* iTunesArtwork.png */,
+				4C9D015118CEF78500DB77CC /* iTunesArtwork@2x.png */,
+			);
+			name = _AppStore;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -339,7 +353,9 @@
 				4C9D011D18CE8C6A00DB77CC /* mainButton_nonActive.png in Resources */,
 				4C9D011A18CE8C6A00DB77CC /* mainBG@2x.png in Resources */,
 				4C9D011E18CE8C6A00DB77CC /* mainButton_nonActive@2x.png in Resources */,
+				4C9D015218CEF78500DB77CC /* iTunesArtwork.png in Resources */,
 				4C9D011918CE8C6A00DB77CC /* mainBG.png in Resources */,
+				4C9D015318CEF78500DB77CC /* iTunesArtwork@2x.png in Resources */,
 				4C9D011F18CE8C6A00DB77CC /* pointerButton_Active.png in Resources */,
 				4C9D012518CE8C6A00DB77CC /* settings_nonActive.png in Resources */,
 				4C9D011618CE8C6A00DB77CC /* firstRunBG.png in Resources */,
@@ -357,9 +373,9 @@
 				4C9D014E18CEDCF700DB77CC /* PPUserAnnotation.m in Sources */,
 				4C9D012F18CE933A00DB77CC /* PPMainViewController.m in Sources */,
 				4C9D014B18CEBE5C00DB77CC /* PPMapViewController.m in Sources */,
-				4C9D00EA18CE7DC600DB77CC /* PPAppDelegate.m in Sources */,
 				4C9D00E618CE7DC600DB77CC /* main.m in Sources */,
 				4C9D013518CEA3F600DB77CC /* PPUserVO.m in Sources */,
+				4C9D015618CEF7A900DB77CC /* PPAppDelegate.m in Sources */,
 				4C9D013018CE933A00DB77CC /* PPRegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
