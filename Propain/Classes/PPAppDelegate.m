@@ -93,6 +93,7 @@ const CGFloat kNavFooterHeight = 55.0f;
 }
 
 
+
 #pragma mark - UI Presentation
 - (void)_styleAppUI {
 	

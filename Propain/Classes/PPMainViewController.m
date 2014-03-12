@@ -120,8 +120,11 @@
 
 #pragma mark - Navigation
 - (void)_goSettings {
+	[[NSNotificationCenter defaultCenter] postNotificationName:@"TOGGLE_STATUS_BAR"
+														object:@"NO"];
+	
 	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[PPSettingsViewController alloc] init]];
-	[navigationController setNavigationBarHidden:YES animated:NO];
+//	[navigationController setNavigationBarHidden:YES animated:NO];
 	[self.navigationController presentViewController:navigationController animated:YES completion:^(void) {
 	}];
 }

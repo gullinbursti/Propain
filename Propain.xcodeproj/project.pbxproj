@@ -118,6 +118,7 @@
 		4C9D015118CEF78500DB77CC /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
 		4C9D015418CEF7A900DB77CC /* PPAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPAppDelegate.h; sourceTree = "<group>"; };
 		4C9D015518CEF7A900DB77CC /* PPAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPAppDelegate.m; sourceTree = "<group>"; };
+		4CE57F7218D0D46400450CEB /* Santa Monica, CA.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Santa Monica, CA.gpx"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,8 +140,7 @@
 		4C91846918D010B400971A7E /* _DEV_ */ = {
 			isa = PBXGroup;
 			children = (
-				4C91846E18D0112400971A7E /* Islamorada, FL.gpx */,
-				4C91847018D0112400971A7E /* Menlo Park, CA.gpx */,
+				4CE57F7118D0D44600450CEB /* GPX */,
 			);
 			name = _DEV_;
 			sourceTree = "<group>";
@@ -321,6 +321,16 @@
 				4C9D015118CEF78500DB77CC /* iTunesArtwork@2x.png */,
 			);
 			name = _AppStore;
+			sourceTree = "<group>";
+		};
+		4CE57F7118D0D44600450CEB /* GPX */ = {
+			isa = PBXGroup;
+			children = (
+				4C91846E18D0112400971A7E /* Islamorada, FL.gpx */,
+				4C91847018D0112400971A7E /* Menlo Park, CA.gpx */,
+				4CE57F7218D0D46400450CEB /* Santa Monica, CA.gpx */,
+			);
+			name = GPX;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

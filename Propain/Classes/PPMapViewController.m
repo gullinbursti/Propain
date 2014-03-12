@@ -16,7 +16,8 @@
 const CGFloat kMinThresholdMeters = 1000.0f;
 const CGFloat kMapAreaMiles = 5.0f;
 
-const CGPoint kDefaultLocation = {-80.626703f, 24.922894f};
+// starting pt is BiM's House
+const CGPoint kDefaultLocation = {122.165486f, 37.463641f};
 
 NSString * const kUserAnnonationViewIdentifier = @"UserAnnonationView";
 
@@ -34,7 +35,6 @@ NSString * const kUserAnnonationViewIdentifier = @"UserAnnonationView";
 @end
 
 @implementation PPMapViewController
-
 
 - (id)init {
 	if ((self = [super init])) {
@@ -139,13 +139,13 @@ NSString * const kUserAnnonationViewIdentifier = @"UserAnnonationView";
 
 #pragma mark - Public APIs
 - (void)updateUserLocation {
-	if ([PPAppDelegate serviceRequestFromUserDefaults].serviceRequestStatus >= PPServiceRequestStatusCompleted) {
+//	if ([PPAppDelegate serviceRequestFromUserDefaults].serviceRequestStatus >= PPServiceRequestStatusCompleted) {
 		for (id<MKAnnotation> annotation in self.mapView.selectedAnnotations)
 			[self.mapView deselectAnnotation:annotation animated:YES];
 		
 		for (id<MKAnnotation> annotation in self.mapView.annotations)
 			[self.mapView removeAnnotation:annotation];
-	}
+//	}
 	
 	[self.mapView deselectAnnotation:_userAnnotation animated:YES];
 	[self.mapView removeAnnotation:_userAnnotation];
@@ -155,16 +155,16 @@ NSString * const kUserAnnonationViewIdentifier = @"UserAnnonationView";
 }
 
 - (void)requestService {
-	if ([PPAppDelegate serviceRequestFromUserDefaults].serviceRequestStatus < PPServiceRequestStatusCompleted) {
-		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Request in Progress!"
-															message:[NSString stringWithFormat:@"You have %@ on-route to your location. Do you wish to cancel?", _selectedSupplierVO.fullName]
-														   delegate:self
-												  cancelButtonTitle:@"No"
-												  otherButtonTitles:@"Yes", nil];
-		[alertView setTag:PPMapAlertTypeCancelServiceRequest];
-		[alertView show];
-	
-	} else {
+//	if ([PPAppDelegate serviceRequestFromUserDefaults].serviceRequestStatus < PPServiceRequestStatusCompleted) {
+//		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Request in Progress!"
+//															message:[NSString stringWithFormat:@"You have %@ on-route to your location. Do you wish to cancel?", _selectedSupplierVO.fullName]
+//														   delegate:self
+//												  cancelButtonTitle:@"No"
+//												  otherButtonTitles:@"Yes", nil];
+//		[alertView setTag:PPMapAlertTypeCancelServiceRequest];
+//		[alertView show];
+//	
+//	} else {
 		if (_supplierAnnotation != nil) {
 			NSString *title = @"Select %@?";
 			for (PPSupplierVO *vo in _suppliers) {
@@ -184,7 +184,7 @@ NSString * const kUserAnnonationViewIdentifier = @"UserAnnonationView";
 		
 		} else
 			[self _calcNearestSupplier];
-	}
+//	}
 }
 
 
@@ -237,42 +237,42 @@ NSString * const kUserAnnonationViewIdentifier = @"UserAnnonationView";
 	[_userAnnotation setCoordinate:_userLocation.coordinate];
 	
 	
-	if ([PPAppDelegate serviceRequestFromUserDefaults].serviceRequestStatus >= PPServiceRequestStatusCompleted) {
+//	if ([PPAppDelegate serviceRequestFromUserDefaults].serviceRequestStatus >= PPServiceRequestStatusCompleted) {
 		_supplierAnnotation = nil;
 		[self _retreiveSuppliers];
 	
-	} else {
-		[_suppliers removeAllObjects];
-		CLLocation *supplierLocation = [[CLLocation alloc] initWithLatitude:[PPAppDelegate serviceRequestFromUserDefaults].supplierCoordinate.latitude longitude:[PPAppDelegate serviceRequestFromUserDefaults].supplierCoordinate.longitude];
-		CLLocationDistance distance = MKMetersBetweenMapPoints(MKMapPointForCoordinate(_userLocation.coordinate), MKMapPointForCoordinate(supplierLocation.coordinate)) / kMetersPerMile;
-		
-		_supplierAnnotation = [[PPSupplierAnnotation alloc] initWithLatitude:supplierLocation.coordinate.latitude andLongitude:supplierLocation.coordinate.longitude];
-		[_supplierAnnotation setTitle:[PPAppDelegate serviceRequestFromUserDefaults].supplierName];
-		[_supplierAnnotation setSubtitle:[NSString stringWithFormat:@"%.02f mile%@", distance, (distance != 1.00f) ? @"s" : @""]];
-		[_supplierAnnotation setCoordinate:supplierLocation.coordinate];
-		
-		[_suppliers addObject:[PPSupplierVO supplierWithDictionary:@{@"id"			: [NSString stringWithFormat:@"%d", [PPAppDelegate serviceRequestFromUserDefaults].serviceRequestID],
-																	 @"name"		: [PPAppDelegate serviceRequestFromUserDefaults].supplierName,
-																	 @"company"		: @"Strickland Propane",
-																	 @"available"	: [NSString stringWithFormat:@"%d", (int)YES],
-																	 @"score"		: [NSString stringWithFormat:@"%d", (arc4random() % 4) + 1],
-																	 @"completed"	: [NSString stringWithFormat:@"%d", (arc4random() % 30) + 5],
-																	 @"added"		: [NSString stringWithFormat:@"%d-%d-%d %d:%d:%d", 2014, (arc4random() % 3) + 1, (arc4random() % 28) + 1, (arc4random() % 24), (arc4random() % 59), (arc4random() % 59)],
-																	 @"last"		: [[NSString stringWithFormat:@"%d-%d-%d", 2014, (arc4random() % 3) + 1, (arc4random() % 28) + 1] stringByAppendingString:@" 00:00:00"],
-																	 @"annotation"	: _supplierAnnotation,
-																	 @"distance"	: [NSString stringWithFormat:@"%f", distance]}]];
-		[self.mapView addAnnotation:_supplierAnnotation];
-		
-		CLLocation *location = [[CLLocation alloc] initWithLatitude:_userAnnotation.coordinate.latitude + ((_supplierAnnotation.coordinate.latitude - _userAnnotation.coordinate.latitude) * 0.5) longitude:_userAnnotation.coordinate.longitude + ((_supplierAnnotation.coordinate.longitude - _userAnnotation.coordinate.longitude) * 0.5)];
-		_coordinateRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(ABS(_userAnnotation.coordinate.latitude - _supplierAnnotation.coordinate.latitude) * 2.0, ABS(_userAnnotation.coordinate.longitude - _supplierAnnotation.coordinate.longitude) * 2.0));
-		[self.mapView setRegion:_coordinateRegion animated:YES];
-		
-		[[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@ is on the way!", [PPAppDelegate serviceRequestFromUserDefaults].supplierName]
-									message:@"Check the map for real-time updates"
-								   delegate:nil
-						  cancelButtonTitle:@"OK"
-						  otherButtonTitles:nil] show];
-	}
+//	} else {
+//		[_suppliers removeAllObjects];
+//		CLLocation *supplierLocation = [[CLLocation alloc] initWithLatitude:[PPAppDelegate serviceRequestFromUserDefaults].supplierCoordinate.latitude longitude:[PPAppDelegate serviceRequestFromUserDefaults].supplierCoordinate.longitude];
+//		CLLocationDistance distance = MKMetersBetweenMapPoints(MKMapPointForCoordinate(_userLocation.coordinate), MKMapPointForCoordinate(supplierLocation.coordinate)) / kMetersPerMile;
+//		
+//		_supplierAnnotation = [[PPSupplierAnnotation alloc] initWithLatitude:supplierLocation.coordinate.latitude andLongitude:supplierLocation.coordinate.longitude];
+//		[_supplierAnnotation setTitle:[PPAppDelegate serviceRequestFromUserDefaults].supplierName];
+//		[_supplierAnnotation setSubtitle:[NSString stringWithFormat:@"%.02f mile%@", distance, (distance != 1.00f) ? @"s" : @""]];
+//		[_supplierAnnotation setCoordinate:supplierLocation.coordinate];
+//		
+//		[_suppliers addObject:[PPSupplierVO supplierWithDictionary:@{@"id"			: [NSString stringWithFormat:@"%d", [PPAppDelegate serviceRequestFromUserDefaults].serviceRequestID],
+//																	 @"name"		: [PPAppDelegate serviceRequestFromUserDefaults].supplierName,
+//																	 @"company"		: @"Strickland Propane",
+//																	 @"available"	: [NSString stringWithFormat:@"%d", (int)YES],
+//																	 @"score"		: [NSString stringWithFormat:@"%d", (arc4random() % 4) + 1],
+//																	 @"completed"	: [NSString stringWithFormat:@"%d", (arc4random() % 30) + 5],
+//																	 @"added"		: [NSString stringWithFormat:@"%d-%d-%d %d:%d:%d", 2014, (arc4random() % 3) + 1, (arc4random() % 28) + 1, (arc4random() % 24), (arc4random() % 59), (arc4random() % 59)],
+//																	 @"last"		: [[NSString stringWithFormat:@"%d-%d-%d", 2014, (arc4random() % 3) + 1, (arc4random() % 28) + 1] stringByAppendingString:@" 00:00:00"],
+//																	 @"annotation"	: _supplierAnnotation,
+//																	 @"distance"	: [NSString stringWithFormat:@"%f", distance]}]];
+//		[self.mapView addAnnotation:_supplierAnnotation];
+//		
+//		CLLocation *location = [[CLLocation alloc] initWithLatitude:_userAnnotation.coordinate.latitude + ((_supplierAnnotation.coordinate.latitude - _userAnnotation.coordinate.latitude) * 0.5) longitude:_userAnnotation.coordinate.longitude + ((_supplierAnnotation.coordinate.longitude - _userAnnotation.coordinate.longitude) * 0.5)];
+//		_coordinateRegion = MKCoordinateRegionMake(location.coordinate, MKCoordinateSpanMake(ABS(_userAnnotation.coordinate.latitude - _supplierAnnotation.coordinate.latitude) * 2.0, ABS(_userAnnotation.coordinate.longitude - _supplierAnnotation.coordinate.longitude) * 2.0));
+//		[self.mapView setRegion:_coordinateRegion animated:YES];
+//		
+//		[[[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"%@ is on the way!", [PPAppDelegate serviceRequestFromUserDefaults].supplierName]
+//									message:@"Check the map for real-time updates"
+//								   delegate:nil
+//						  cancelButtonTitle:@"OK"
+//						  otherButtonTitles:nil] show];
+//	}
 }
 
 
