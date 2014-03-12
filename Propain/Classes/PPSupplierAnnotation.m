@@ -1,21 +1,19 @@
 //
-//  PPUserAnnotationView.m
+//  PPSupplierAnnotation.m
 //  Propain
 //
-//  Created by Matt Holcombe on 03/10/2014 @ 22:56 .
+//  Created by Matt Holcombe on 03/11/2014 @ 10:23 .
 //  Copyright (c) 2014 Propain, LLC. All rights reserved.
 //
 
+#import "PPSupplierAnnotation.h"
 
-#import "PPUserAnnotation.h"
-
-
-@interface PPUserAnnotation ()
+@interface PPSupplierAnnotation ()
 @property (nonatomic) CLLocationDegrees latitude;
 @property (nonatomic) CLLocationDegrees longitude;
 @end
 
-@implementation PPUserAnnotation
+@implementation PPSupplierAnnotation
 @synthesize title = _title;
 @synthesize subtitle = _subtitle;
 

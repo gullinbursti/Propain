@@ -10,11 +10,9 @@
 #import "PPMainViewController.h"
 #import "PPRegisterViewController.h"
 
-const CGFloat kNavHeaderHeight = 77.0;
-const CGFloat kNavFooterHeight = 52.0;
-const CGPoint kHomePoint = {-80.626703, 24.922894};
-const CGFloat kMapDistanceMeters = 5000.0f;
-const CGFloat kMapScaleMiles = 12.0f;
+const CGFloat kNavHeaderHeight = 77.0f;
+const CGFloat kNavFooterHeight = 55.0f;
+
 
 @interface PPAppDelegate ()
 @property (nonatomic, strong) UIImageView *launchImageView;
@@ -24,34 +22,59 @@ const CGFloat kMapScaleMiles = 12.0f;
 @implementation PPAppDelegate
 
 #pragma mark - UserDefaults
-+ (void)writeUserToUserDefaults:(NSDictionary *)userInfo {
-	
-	// remove previous info if exists
++ (void)writeUserInfoToUserDefaults:(NSDictionary *)userInfo {
 	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"user_info"] != nil)
 		[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"user_info"];
 	
-	// write
 	[[NSUserDefaults standardUserDefaults] setObject:userInfo forKey:@"user_info"];
 	[[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-+ (PPUserVO *)userFromUserDefaults {
-	
-	// user info exists, convert to vo
++ (PPUserVO *)userInfoFromUserDefaults {
 	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"user_info"] != nil)
 		return ([PPUserVO userWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"user_info"]]);
 	
-	// doesn't exist, return a nil
 	else
-		return (nil);
+		return ([PPUserVO userWithDictionary:@{@"id"		: @"0",
+											   @"username"	: @"",
+											   @"added"		: @"2014-03-11 09:43:21"}]);
+}
+
++ (void)writeServiceRequestToUserDefaults:(NSDictionary *)dictionary {
+	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"service_request"] != nil)
+		[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"service_request"];
+	
+	[[NSUserDefaults standardUserDefaults] setObject:dictionary forKey:@"service_request"];
+	[[NSUserDefaults standardUserDefaults] synchronize];
+}
+
++ (PPServiceRequestVO *)serviceRequestFromUserDefaults {
+	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"service_request"] != nil)
+		return ([PPServiceRequestVO serviceRequestWithDictionary:[[NSUserDefaults standardUserDefaults] objectForKey:@"service_request"]]);
+	
+	else
+		return ([PPServiceRequestVO serviceRequestWithDictionary:@{@"id"				: @"0",
+																   @"status"			: [NSString stringWithFormat:@"%d", PPServiceRequestStatusInvalid],
+																   @"supplier_id"		: @"0",
+																   @"supplier_name"		: @"",
+																   @"supplier_coords"	: @{@"latitude"		: [NSString stringWithFormat:@"%f", 0.0],
+																							@"longitude"	: [NSString stringWithFormat:@"%f", 0.0]},
+																   @"added"				: @"0000-00-00 00:00:00",
+																   @"updated"			: @"0000-00-00 00:00:00",
+																   @"ended"				: @"0000-00-00 00:00:00"}]);
 }
 
 
 #pragma mark - Helper Functions
 + (BOOL)isRetina4Inch {
-	
-	// screen is 4"
 	return (([UIScreen mainScreen].scale == 2.0f) && ([UIScreen mainScreen].bounds.size.height == 568.0f));
+}
+
++ (NSDate *)dateForFormattedString:(NSString *)dateString {
+	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+	[dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+	
+	return ([dateFormat dateFromString:dateString]);
 }
 
 
@@ -59,14 +82,10 @@ const CGFloat kMapScaleMiles = 12.0f;
 - (void)_toggleStatusBar:(NSNotification *)notification {
 	BOOL willDisplay = ([[notification object] isEqualToString:@"YES"]);
 	
-	// make sure tint view exists
 	if (self.statusBarTintView != nil) {
-		
-		// hide/show status bar
 		[[UIApplication sharedApplication] setStatusBarHidden:!willDisplay
 												withAnimation:UIStatusBarAnimationFade];
 		
-		// animate tint in/out
 		[UIView animateWithDuration:0.33
 						 animations:^(void) {self.statusBarTintView.alpha = (int)willDisplay;}
 						 completion:^(BOOL finished) {}];
@@ -80,7 +99,6 @@ const CGFloat kMapScaleMiles = 12.0f;
 	// make status bar content white
 	[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 	
-	// status bar tint
 	self.statusBarTintView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 20.0)];
 	self.statusBarTintView.backgroundColor = [UIColor colorWithWhite:0.0 alpha:0.75];
 	self.statusBarTintView.alpha = 0.0;
@@ -88,11 +106,9 @@ const CGFloat kMapScaleMiles = 12.0f;
 }
 
 - (void)_showRegistration {
-	// hide status bar
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"TOGGLE_STATUS_BAR"
 														object:@"NO"];
 	
-	// present view controller
 	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[PPRegisterViewController alloc] init]];
 	[navigationController setNavigationBarHidden:YES animated:NO];
 	[self.rootNavigationController presentViewController:navigationController animated:NO completion:^(void) {
@@ -113,7 +129,6 @@ const CGFloat kMapScaleMiles = 12.0f;
 	self.rootNavigationController = [[UINavigationController alloc] initWithRootViewController:[[PPMainViewController alloc] init]];
 	[self.rootNavigationController setNavigationBarHidden:YES animated:NO];
 	
-	// hide the status bar
 	[[NSNotificationCenter defaultCenter] postNotificationName:@"TOGGLE_STATUS_BAR"
 														object:@"NO"];
 	
@@ -125,22 +140,18 @@ const CGFloat kMapScaleMiles = 12.0f;
 	
 	// show app ui
 	[self.window makeKeyAndVisible];
-	
-	// setup app appearance
 	[self _styleAppUI];
 	
 	
 	// clear out user info
-#if __FORCE_REGISTRATION__ == 1
+#if __WIPE_USER_INFO__ == 1
 	if ([[NSUserDefaults standardUserDefaults] objectForKey:@"user_info"] != nil) {
 		[[NSUserDefaults standardUserDefaults] removeObjectForKey:@"user_info"];
 		[[NSUserDefaults standardUserDefaults] synchronize];
 	}
 #endif
 	
-	// requires user to register
 #if __REQUIRE_REGISTRATION__ == 1
-	// no user assigned, show register
 	if ([PPAppDelegate userFromUserDefaults] == nil)
 		[self _showRegistration];
 #endif

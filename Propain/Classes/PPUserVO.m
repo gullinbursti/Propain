@@ -18,11 +18,7 @@
 	
 	vo.userID = [[dictionary objectForKey:@"id"] intValue];
 	vo.username = [dictionary objectForKey:@"username"];
-	
-	NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-	[dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-	
-	vo.addedDate = [dateFormat dateFromString:[dictionary objectForKey:@"time"]];
+	vo.addedDate = [PPAppDelegate dateForFormattedString:[dictionary objectForKey:@"added"]];
 	
 	return (vo);
 }

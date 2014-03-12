@@ -1,20 +1,20 @@
 //
-//  PPRegisterViewController.m
+//  PPSettingsViewController.m
 //  Propain
 //
-//  Created by Matt Holcombe on 03/10/2014 @ 17:40 .
+//  Created by Matt Holcombe on 03/11/2014 @ 18:09 .
 //  Copyright (c) 2014 Propain, LLC. All rights reserved.
 //
 
 
-#import "PPRegisterViewController.h"
+#import "PPSettingsViewController.h"
 
 
-@interface PPRegisterViewController ()
+@interface PPSettingsViewController ()
 @end
 
 
-@implementation PPRegisterViewController
+@implementation PPSettingsViewController
 
 - (id)init {
 	if ((self = [super init])) {
@@ -45,7 +45,7 @@
 	ViewControllerLog(@"[:|:] [%@ loadView] [:|:]", self.class);
 	[super loadView];
 	
-	UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:([PPAppDelegate isRetina4Inch]) ? @"firstRunBG-568h@2x" : @"firstRunBG"]];
+	UIImageView *bgImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:([PPAppDelegate isRetina4Inch]) ? @"mainBG-568h@2x" : @"mainBG"]];
 	bgImageView.frame = [[UIScreen mainScreen] bounds];
 	[self.view addSubview:bgImageView];
 }
@@ -54,12 +54,12 @@
 	ViewControllerLog(@"[:|:] [%@ viewDidLoad] [:|:]", self.class);
 	[super viewDidLoad];
 	
-	UIButton *checkAvailButton = [UIButton buttonWithType:UIButtonTypeCustom];
-	checkAvailButton.frame = CGRectMake(33.0, self.view.bounds.size.height - 111.0, 254.0, 74.0);
-	[checkAvailButton setBackgroundImage:[UIImage imageNamed:@"checkAvail_nonActive"] forState:UIControlStateNormal];
-	[checkAvailButton setBackgroundImage:[UIImage imageNamed:@"checkAvail_Active"] forState:UIControlStateHighlighted];
-	[checkAvailButton addTarget:self action:@selector(_goCheckAvailability) forControlEvents:UIControlEventTouchUpInside];
-	[self.view addSubview:checkAvailButton];
+	UIButton *closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	closeButton.frame = CGRectMake(256.0, 24.0, 44.0, 44.0);
+	[closeButton setBackgroundImage:[UIImage imageNamed:@"pointerButton_nonActive"] forState:UIControlStateNormal];
+	[closeButton setBackgroundImage:[UIImage imageNamed:@"pointerButton_Active"] forState:UIControlStateHighlighted];
+	[closeButton addTarget:self action:@selector(_goClose) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:closeButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -89,7 +89,7 @@
 
 
 #pragma mark - Navigation
-- (void)_goCheckAvailability {
+- (void)_goClose {
 	[self.navigationController dismissViewControllerAnimated:YES completion:^(void) {}];
 }
 

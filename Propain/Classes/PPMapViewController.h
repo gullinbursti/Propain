@@ -10,15 +10,30 @@
 #import <MapKit/MapKit.h>
 #import <UIKit/UIKit.h>
 
+typedef enum {
+	PPMapAlertTypeOverrideNearestSupplier = 0,
+	PPMapAlertTypeUserNearestSupplier,
+	PPMapAlertTypeCancelServiceRequest
+} PPMapAlertType;
+
+
+extern const CGFloat kMinThresholdMeters;
+extern const CGFloat kMapAreaMiles;
+
+extern const CGPoint kDefaultLocation;
+
 extern NSString * const kUserAnnonationViewIdentifier;
-extern NSString * const kMKUserAnnonationViewIdentifier;
+
 
 @protocol PPMapViewControllerDelegate;
-@interface PPMapViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
+@interface PPMapViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate, UIAlertViewDelegate>
+- (void)updateUserLocation;
+- (void)requestService;
 
-@property (nonatomic, assign) id <PPMapViewControllerDelegate> delegate;
+@property (nonatomic, assign) id<PPMapViewControllerDelegate> delegate;
 @property (nonatomic, retain) MKMapView *mapView;
 @end
+
 
 @protocol PPMapViewControllerDelegate <NSObject>
 - (void)mapViewController:(PPMapViewController *)mapViewController didUpdateLocation:(CLLocationCoordinate2D *)locationCoordinate2D;

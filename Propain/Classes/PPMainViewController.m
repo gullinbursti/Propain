@@ -8,6 +8,7 @@
 
 #import "PPMainViewController.h"
 #import "PPMapViewController.h"
+#import "PPSettingsViewController.h"
 
 @interface PPMainViewController () <PPMapViewControllerDelegate>
 @property (nonatomic, strong) PPMapViewController *mapViewController;
@@ -58,12 +59,34 @@
 	ViewControllerLog(@"[:|:] [%@ viewDidLoad] [:|:]", self.class);
 	[super viewDidLoad];
 	
+	UIButton *settingsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	settingsButton.frame = CGRectMake(3.0, 26.0, 44.0, 44.0);
+	[settingsButton setBackgroundImage:[UIImage imageNamed:@"settings_nonActive"] forState:UIControlStateNormal];
+	[settingsButton setBackgroundImage:[UIImage imageNamed:@"settings_Active"] forState:UIControlStateHighlighted];
+	[settingsButton addTarget:self action:@selector(_goSettings) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:settingsButton];
+		
+	UIButton *locationButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	locationButton.frame = CGRectMake(256.0, 24.0, 44.0, 44.0);
+	[locationButton setBackgroundImage:[UIImage imageNamed:@"pointerButton_nonActive"] forState:UIControlStateNormal];
+	[locationButton setBackgroundImage:[UIImage imageNamed:@"pointerButton_Active"] forState:UIControlStateHighlighted];
+	[locationButton addTarget:self action:@selector(_goLocation) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:locationButton];
+	
 	_mapViewController = [[PPMapViewController alloc] init];
+	_mapViewController.view.frame = CGRectOffset(_mapViewController.view.frame, 0.0, kNavHeaderHeight);
 	_mapViewController.delegate = self;
 	
 	[self addChildViewController:_mapViewController];
 	[self.view addSubview:_mapViewController.view];
 	[_mapViewController didMoveToParentViewController:self];
+	
+	UIButton *requestButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	requestButton.frame = CGRectMake(113.0, self.view.bounds.size.height - 98.0, 94.0, 94.0);
+	[requestButton setBackgroundImage:[UIImage imageNamed:@"mainButton_nonActive"] forState:UIControlStateNormal];
+	[requestButton setBackgroundImage:[UIImage imageNamed:@"mainButton_Active"] forState:UIControlStateHighlighted];
+	[requestButton addTarget:self action:@selector(_goRequestService) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:requestButton];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -96,6 +119,20 @@
 
 
 #pragma mark - Navigation
+- (void)_goSettings {
+	UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:[[PPSettingsViewController alloc] init]];
+	[navigationController setNavigationBarHidden:YES animated:NO];
+	[self.navigationController presentViewController:navigationController animated:YES completion:^(void) {
+	}];
+}
+
+- (void)_goLocation {
+	[_mapViewController updateUserLocation];
+}
+
+- (void)_goRequestService {
+	[_mapViewController requestService];
+}
 
 
 #pragma mark - MapViewController Delegates

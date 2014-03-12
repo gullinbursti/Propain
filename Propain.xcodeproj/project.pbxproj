@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C7F94EA18CF7E0800B110DD /* PPSupplierAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F94E918CF7E0800B110DD /* PPSupplierAnnotation.m */; };
+		4C7F94ED18CF964200B110DD /* PPSupplierVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F94EC18CF964200B110DD /* PPSupplierVO.m */; };
+		4C7F94F018CFAFBE00B110DD /* PPSupplierAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F94EF18CFAFBE00B110DD /* PPSupplierAnnotationView.m */; };
+		4C7F94F218CFB34C00B110DD /* FPO.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C7F94F118CFB34C00B110DD /* FPO.xcassets */; };
+		4C7F94F518CFE10600B110DD /* PPServiceRequestVO.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F94F418CFE10600B110DD /* PPServiceRequestVO.m */; };
+		4C7F94F818CFEB4A00B110DD /* PPSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7F94F718CFEB4A00B110DD /* PPSettingsViewController.m */; };
+		4C91847118D0112400971A7E /* Islamorada, FL.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4C91846E18D0112400971A7E /* Islamorada, FL.gpx */; };
+		4C91847318D0112400971A7E /* Menlo Park, CA.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 4C91847018D0112400971A7E /* Menlo Park, CA.gpx */; };
 		4C9D00DA18CE7DC600DB77CC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9D00D918CE7DC600DB77CC /* UIKit.framework */; };
 		4C9D00DC18CE7DC600DB77CC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9D00DB18CE7DC600DB77CC /* Foundation.framework */; };
 		4C9D00DE18CE7DC600DB77CC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C9D00DD18CE7DC600DB77CC /* CoreGraphics.framework */; };
@@ -49,6 +57,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C7F94E818CF7E0800B110DD /* PPSupplierAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSupplierAnnotation.h; sourceTree = "<group>"; };
+		4C7F94E918CF7E0800B110DD /* PPSupplierAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSupplierAnnotation.m; sourceTree = "<group>"; };
+		4C7F94EB18CF964200B110DD /* PPSupplierVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSupplierVO.h; sourceTree = "<group>"; };
+		4C7F94EC18CF964200B110DD /* PPSupplierVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSupplierVO.m; sourceTree = "<group>"; };
+		4C7F94EE18CFAFBE00B110DD /* PPSupplierAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSupplierAnnotationView.h; sourceTree = "<group>"; };
+		4C7F94EF18CFAFBE00B110DD /* PPSupplierAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSupplierAnnotationView.m; sourceTree = "<group>"; };
+		4C7F94F118CFB34C00B110DD /* FPO.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = FPO.xcassets; sourceTree = "<group>"; };
+		4C7F94F318CFE10600B110DD /* PPServiceRequestVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPServiceRequestVO.h; sourceTree = "<group>"; };
+		4C7F94F418CFE10600B110DD /* PPServiceRequestVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPServiceRequestVO.m; sourceTree = "<group>"; };
+		4C7F94F618CFEB4A00B110DD /* PPSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPSettingsViewController.h; sourceTree = "<group>"; };
+		4C7F94F718CFEB4A00B110DD /* PPSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPSettingsViewController.m; sourceTree = "<group>"; };
+		4C91846E18D0112400971A7E /* Islamorada, FL.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Islamorada, FL.gpx"; sourceTree = "<group>"; };
+		4C91847018D0112400971A7E /* Menlo Park, CA.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Menlo Park, CA.gpx"; sourceTree = "<group>"; };
 		4C9D00D618CE7DC600DB77CC /* Propain.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Propain.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C9D00D918CE7DC600DB77CC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		4C9D00DB18CE7DC600DB77CC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -115,6 +136,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C91846918D010B400971A7E /* _DEV_ */ = {
+			isa = PBXGroup;
+			children = (
+				4C91846E18D0112400971A7E /* Islamorada, FL.gpx */,
+				4C91847018D0112400971A7E /* Menlo Park, CA.gpx */,
+			);
+			name = _DEV_;
+			sourceTree = "<group>";
+		};
 		4C9D00CD18CE7DC600DB77CC = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +198,7 @@
 		4C9D00FA18CE8C6A00DB77CC /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				4C91846918D010B400971A7E /* _DEV_ */,
 				4C9D014F18CEF77600DB77CC /* _AppStore */,
 				4C9D013918CEB0C200DB77CC /* Asset Catalogs */,
 				4C9D013818CEB09100DB77CC /* Backgrounds */,
@@ -193,6 +224,10 @@
 			children = (
 				4C9D013318CEA3F600DB77CC /* PPUserVO.h */,
 				4C9D013418CEA3F600DB77CC /* PPUserVO.m */,
+				4C7F94EB18CF964200B110DD /* PPSupplierVO.h */,
+				4C7F94EC18CF964200B110DD /* PPSupplierVO.m */,
+				4C7F94F318CFE10600B110DD /* PPServiceRequestVO.h */,
+				4C7F94F418CFE10600B110DD /* PPServiceRequestVO.m */,
 			);
 			name = VO;
 			sourceTree = "<group>";
@@ -246,6 +281,7 @@
 			children = (
 				4C9D013C18CEB0FF00DB77CC /* AppIcons.xcassets */,
 				4C9D013E18CEB1EF00DB77CC /* LaunchImages.xcassets */,
+				4C7F94F118CFB34C00B110DD /* FPO.xcassets */,
 			);
 			name = "Asset Catalogs";
 			sourceTree = "<group>";
@@ -259,6 +295,12 @@
 				4C9D014A18CEBE5C00DB77CC /* PPMapViewController.m */,
 				4C9D014C18CEDCF700DB77CC /* PPUserAnnotation.h */,
 				4C9D014D18CEDCF700DB77CC /* PPUserAnnotation.m */,
+				4C7F94E818CF7E0800B110DD /* PPSupplierAnnotation.h */,
+				4C7F94E918CF7E0800B110DD /* PPSupplierAnnotation.m */,
+				4C7F94EE18CFAFBE00B110DD /* PPSupplierAnnotationView.h */,
+				4C7F94EF18CFAFBE00B110DD /* PPSupplierAnnotationView.m */,
+				4C7F94F618CFEB4A00B110DD /* PPSettingsViewController.h */,
+				4C7F94F718CFEB4A00B110DD /* PPSettingsViewController.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -288,6 +330,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4C9D00F318CE7DC600DB77CC /* Build configuration list for PBXNativeTarget "Propain" */;
 			buildPhases = (
+				4C117AAE18D02C380054D2B3 /* ShellScript */,
 				4C9D00D218CE7DC600DB77CC /* Sources */,
 				4C9D00D318CE7DC600DB77CC /* Frameworks */,
 				4C9D00D418CE7DC600DB77CC /* Resources */,
@@ -310,6 +353,15 @@
 				CLASSPREFIX = PP;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Propain, LLC";
+				TargetAttributes = {
+					4C9D00D518CE7DC600DB77CC = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 4C9D00D118CE7DC600DB77CC /* Build configuration list for PBXProject "Propain" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -342,6 +394,7 @@
 				4C9D011B18CE8C6A00DB77CC /* mainButton_Active.png in Resources */,
 				4C9D011118CE8C6A00DB77CC /* checkAvail_Active.png in Resources */,
 				4C9D012618CE8C6A00DB77CC /* settings_nonActive@2x.png in Resources */,
+				4C7F94F218CFB34C00B110DD /* FPO.xcassets in Resources */,
 				4C9D012018CE8C6A00DB77CC /* pointerButton_Active@2x.png in Resources */,
 				4C9D011318CE8C6A00DB77CC /* checkAvail_nonActive.png in Resources */,
 				4C9D013D18CEB0FF00DB77CC /* AppIcons.xcassets in Resources */,
@@ -349,6 +402,8 @@
 				4C9D011518CE8C6A00DB77CC /* firstRunBG-568h@2x.png in Resources */,
 				4C9D011218CE8C6A00DB77CC /* checkAvail_Active@2x.png in Resources */,
 				4C9D012318CE8C6A00DB77CC /* settings_Active.png in Resources */,
+				4C91847318D0112400971A7E /* Menlo Park, CA.gpx in Resources */,
+				4C91847118D0112400971A7E /* Islamorada, FL.gpx in Resources */,
 				4C9D00E418CE7DC600DB77CC /* InfoPlist.strings in Resources */,
 				4C9D011D18CE8C6A00DB77CC /* mainButton_nonActive.png in Resources */,
 				4C9D011A18CE8C6A00DB77CC /* mainBG@2x.png in Resources */,
@@ -365,15 +420,36 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4C117AAE18D02C380054D2B3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/bash;
+			shellScript = "#!/bin/bash\n\nplist=${PROJECT_DIR}/${INFOPLIST_FILE}\nbuildVersion=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" $plist)\n#-- buildVersion=$((0x$buildVersion))\n\nbuildVersion=$(($buildVersion + 1))\n#-- buildVersion=$(printf \"%X\" $buildVersion)\n\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildVersion\" $plist\n\n\nexit 0;\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4C9D00D218CE7DC600DB77CC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C7F94F518CFE10600B110DD /* PPServiceRequestVO.m in Sources */,
+				4C7F94F818CFEB4A00B110DD /* PPSettingsViewController.m in Sources */,
+				4C7F94EA18CF7E0800B110DD /* PPSupplierAnnotation.m in Sources */,
 				4C9D014E18CEDCF700DB77CC /* PPUserAnnotation.m in Sources */,
 				4C9D012F18CE933A00DB77CC /* PPMainViewController.m in Sources */,
 				4C9D014B18CEBE5C00DB77CC /* PPMapViewController.m in Sources */,
 				4C9D00E618CE7DC600DB77CC /* main.m in Sources */,
+				4C7F94F018CFAFBE00B110DD /* PPSupplierAnnotationView.m in Sources */,
+				4C7F94ED18CF964200B110DD /* PPSupplierVO.m in Sources */,
 				4C9D013518CEA3F600DB77CC /* PPUserVO.m in Sources */,
 				4C9D015618CEF7A900DB77CC /* PPAppDelegate.m in Sources */,
 				4C9D013018CE933A00DB77CC /* PPRegisterViewController.m in Sources */,
@@ -474,6 +550,7 @@
 				GCC_PREFIX_HEADER = "Propain/Propain-Prefix.pch";
 				INFOPLIST_FILE = "Propain/Propain-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -487,6 +564,7 @@
 				GCC_PREFIX_HEADER = "Propain/Propain-Prefix.pch";
 				INFOPLIST_FILE = "Propain/Propain-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -510,6 +588,7 @@
 				4C9D00F518CE7DC600DB77CC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
